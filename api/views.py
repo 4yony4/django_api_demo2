@@ -10,7 +10,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
+from dotenv import load_dotenv
+
+# Cargar las variables de entorno del archivo .env
+load_dotenv()
+
+
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+DEBUG = os.getenv("DEBUG") == "True"
 
 # Create your views here.
 class ItemViewSet(viewsets.ModelViewSet):
